@@ -238,7 +238,7 @@ void graphics_draw_steps_value(GContext *ctx, GRect bounds, GColor color, GBitma
 //  shoe_bitmap_box.origin.x = (bounds.size.w / 2) + (combined_width / 2) - shoe_bitmap_box.size.w;
 //  shoe_bitmap_box.origin.y = PBL_IF_RECT_ELSE(60, 65);
   steps_text_box.origin.x = (bounds.size.w / 2) - (text_width / 2);
-  steps_text_box.origin.y = PBL_IF_RECT_ELSE(38, 38);
+  steps_text_box.origin.y = PBL_IF_RECT_ELSE(40, 40);
   shoe_bitmap_box.origin.x = (bounds.size.w / 2) - (shoe_bitmap_box.size.w / 2);
   shoe_bitmap_box.origin.y = PBL_IF_RECT_ELSE(20, 25);
 
@@ -257,11 +257,11 @@ void graphics_draw_status_icons(GContext *ctx, GPoint xy,GBitmap* bitmapBaterry,
     bleBox.origin=xy;
     /// Screen width 144
     /// Should be right aligned with 15 px margin
-    xy.x=140-15-batteryBox.size.w;
+    xy.x=140-PBL_IF_RECT_ELSE(15, 5)-batteryBox.size.w;
     batteryBox.origin=xy;
     graphics_draw_bitmap_in_rect(ctx,bitmapBLE,bleBox);
-     APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
-   bleBox.origin.x,bleBox.origin.y,bleBox.size.w,bleBox.size.h);
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
+    bleBox.origin.x,bleBox.origin.y,bleBox.size.w,bleBox.size.h);
     graphics_draw_bitmap_in_rect(ctx,bitmapBaterry,batteryBox);
     APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
     batteryBox.origin.x,batteryBox.origin.y,batteryBox.size.w,batteryBox.size.h);

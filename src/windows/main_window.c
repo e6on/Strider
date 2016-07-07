@@ -52,11 +52,11 @@ static void progress_update_proc(Layer *layer, GContext *ctx) {
   graphics_fill_goal_line(ctx, daily_average, fill_thickness, 4, bounds, GColorYellow);
   graphics_draw_steps_value(ctx, bounds, scheme_color, bitmap);
   GPoint pt;
-  pt.x=20;
-  pt.y=20;
+  pt.x=PBL_IF_RECT_ELSE(20, 50);
+  pt.y=PBL_IF_RECT_ELSE(25, 30);
   graphics_draw_status_icons(ctx, pt,data_get_Battery(batteryCharging),data_get_BLE(connection_service_peek_pebble_app_connection()),batteryLevel);
-  pt.x=20;
-  pt.y=20;
+  pt.x=PBL_IF_RECT_ELSE(20, 50);
+  pt.y=PBL_IF_RECT_ELSE(25, 30);
 }
 
 static void text_update_proc(Layer *layer, GContext *ctx) {
@@ -80,7 +80,7 @@ static void text_update_proc(Layer *layer, GContext *ctx) {
   const int y_margin = PBL_IF_RECT_ELSE(8, 2);
   const GRect time_rect = grect_inset(layer_bounds, GEdgeInsets(-y_margin, 0, 0, x_margin));
    /// Added to support date - kuup asukoht
-  const GRect date_rect = grect_inset(layer_bounds, GEdgeInsets(y_margin+PBL_IF_RECT_ELSE(25, 35), 0, 0, x_margin+3));
+  const GRect date_rect = grect_inset(layer_bounds, GEdgeInsets(y_margin+PBL_IF_RECT_ELSE(35, 45), 0, 0, x_margin+3));
   graphics_context_set_text_color(ctx, GColorWhite);
   graphics_draw_text(ctx, s_current_time_buffer, font_large, time_rect, 
                      GTextOverflowModeWordWrap, GTextAlignmentCenter, NULL);

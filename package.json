@@ -16,26 +16,26 @@
         "resources": {
             "media": [
                 {
-                    "file": "images/bleO.png",
+                    "file": "images/bleN.png",
                     "name": "IMAGE_BLEN",
                     "targetPlatforms": null,
                     "type": "png"
                 },
                 {
-                    "file": "images/bleI.png",
+                    "file": "images/ble.png",
                     "name": "IMAGE_BLE",
                     "targetPlatforms": null,
                     "type": "png"
                 },
                 {
                     "file": "fonts/MET_BoldCaps.ttf",
-                    "name": "MET_BoldCaps_26",
+                    "name": "MET_BoldCaps_46",
                     "targetPlatforms": null,
                     "type": "font"
                 },
                 {
                     "file": "fonts/MET_BoldCaps.ttf",
-                    "name": "MET_BoldCaps_42",
+                    "name": "MET_BoldCaps_26",
                     "targetPlatforms": null,
                     "type": "font"
                 },

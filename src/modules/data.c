@@ -109,7 +109,7 @@ void data_init() {
 //  s_font_big = fonts_get_system_font(FONT_KEY_LECO_42_NUMBERS); // time text
 //  s_font_small = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_26)); // steps text
   s_font_med = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_26)); // date text
-  s_font_big = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_42)); // time text
+  s_font_big = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_46)); // time text
 
   // First time persist
   if(!persist_exists(AppKeyCurrentSteps)) {
