@@ -1,0 +1,83 @@
+{
+    "author": "Pebble",
+    "dependencies": {},
+    "keywords": [],
+    "name": "strider",
+    "pebble": {
+        "capabilities": [
+            "health"
+        ],
+        "displayName": "Strider",
+        "enableMultiJS": true,
+        "messageKeys": [
+            "dummy"
+        ],
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/bleO.png",
+                    "name": "IMAGE_BLEN",
+                    "targetPlatforms": null,
+                    "type": "png"
+                },
+                {
+                    "file": "images/bleI.png",
+                    "name": "IMAGE_BLE",
+                    "targetPlatforms": null,
+                    "type": "png"
+                },
+                {
+                    "file": "fonts/MET_BoldCaps.ttf",
+                    "name": "MET_BoldCaps_26",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/MET_BoldCaps.ttf",
+                    "name": "MET_BoldCaps_42",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
+                    "file": "images/red_shoe.png",
+                    "name": "RED_SHOE_LOGO",
+                    "targetPlatforms": null,
+                    "type": "png"
+                },
+                {
+                    "file": "images/battery.png",
+                    "name": "IMAGE_BATTERY",
+                    "targetPlatforms": null,
+                    "type": "png"
+                },
+                {
+                    "file": "images/batteryCharger.png",
+                    "name": "IMAGE_BATTERY_CHARGER",
+                    "targetPlatforms": null,
+                    "type": "png"
+                },
+                {
+                    "file": "images/green_shoe.png",
+                    "name": "GREEN_SHOE_LOGO",
+                    "type": "png"
+                },
+                {
+                    "file": "images/blue_shoe.png",
+                    "name": "BLUE_SHOE_LOGO",
+                    "type": "png"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt",
+            "chalk"
+        ],
+        "uuid": "49e32ffd-8520-4c16-8ae6-860b494cf143",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
