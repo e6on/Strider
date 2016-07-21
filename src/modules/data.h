@@ -33,6 +33,7 @@ GFont data_get_font(FontSize size);
 GBitmap* data_get_blue_shoe();
 GBitmap* data_get_red_shoe();
 GBitmap* data_get_green_shoe();
+GBitmap* data_get_brgreen_shoe();
 
 void data_update_steps_buffer();
 

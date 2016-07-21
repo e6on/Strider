@@ -11,7 +11,7 @@ typedef enum {
   AverageTypeDaily
 } AverageType;
 
-static GBitmap *s_blue_shoe, *s_red_shoe, *s_green_shoe, *sbmpBleN,*sbmpBle,*sbmpBatteryCharging,*sbmpBattery;
+static GBitmap *s_blue_shoe, *s_red_shoe, *s_green_shoe, *s_brgreen_shoe, *sbmpBleN, *sbmpBle, *sbmpBatteryCharging, *sbmpBattery;
 static GFont s_font_small, s_font_big, s_font_med;
 
 static int s_current_steps, s_daily_average, s_current_average;
@@ -96,18 +96,19 @@ void data_reload_averages() {
 
 void data_init() {
   // Load resources
+  s_brgreen_shoe = gbitmap_create_with_resource(RESOURCE_ID_BRGREEN_SHOE_LOGO);
   s_green_shoe = gbitmap_create_with_resource(RESOURCE_ID_GREEN_SHOE_LOGO);
   s_blue_shoe = gbitmap_create_with_resource(RESOURCE_ID_BLUE_SHOE_LOGO);
   s_red_shoe = gbitmap_create_with_resource(RESOURCE_ID_RED_SHOE_LOGO);
-  sbmpBattery= gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATTERY);
-  sbmpBatteryCharging= gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATTERY_CHARGER);
-  sbmpBle=gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BLE);
-  sbmpBleN=gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BLEN);
+  sbmpBattery = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATTERY);
+  sbmpBatteryCharging = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATTERY_CHARGER);
+  sbmpBle = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BLE);
+  sbmpBleN = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BLEN);
 
-  s_font_small = fonts_get_system_font(FONT_KEY_LECO_20_BOLD_NUMBERS); // steps text
+//  s_font_small = fonts_get_system_font(FONT_KEY_LECO_28_LIGHT_NUMBERS); // steps text
 //  s_font_med = fonts_get_system_font(FONT_KEY_LECO_32_BOLD_NUMBERS); // date text
 //  s_font_big = fonts_get_system_font(FONT_KEY_LECO_42_NUMBERS); // time text
-//  s_font_small = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_26)); // steps text
+  s_font_small = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_din_bold_20)); // steps text
   s_font_med = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_26)); // date text
   s_font_big = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MET_BoldCaps_46)); // time text
 
@@ -128,21 +129,22 @@ void data_init() {
 }
 
 void data_deinit() {
+  gbitmap_destroy(s_brgreen_shoe);
   gbitmap_destroy(s_green_shoe);
   gbitmap_destroy(s_blue_shoe);
   gbitmap_destroy(s_red_shoe);
 }
 
 int data_get_current_steps() {
-  return s_current_steps;
+   return s_current_steps;
 }
 
 int data_get_current_average() {
-  return s_current_average;
+   return s_current_average;
 }
 
 int data_get_daily_average() {
-  return s_daily_average;
+   return s_daily_average;
 }
 
 void data_set_current_steps(int value) {
@@ -172,6 +174,10 @@ GBitmap* data_get_blue_shoe() {
 
 GBitmap* data_get_green_shoe() {
   return s_green_shoe;
+}
+
+GBitmap* data_get_brgreen_shoe() {
+  return s_brgreen_shoe;
 }
 
 GBitmap* data_get_red_shoe() {

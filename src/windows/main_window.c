@@ -24,31 +24,109 @@ static void progress_update_proc(Layer *layer, GContext *ctx) {
   int current_average = data_get_current_average();
 
   // Set new exceeded daily average
-  if(current_steps > daily_average) {
-    daily_average = current_steps;
-    data_set_daily_average(daily_average);
-  }
+//  if(current_steps > daily_average) {
+//    daily_average = current_steps;
+//    data_set_daily_average(daily_average);
+//  }
 
   // Decide color scheme based on progress to/past goal
   GColor scheme_color;
   GBitmap *bitmap;
-
+  
+  // Decide color scheme based on progress to/past goal
+  // Perform drawing
+  graphics_draw_outer_dots(ctx, bounds);
+  /// Above daily average go JaegerGreen
    if(current_steps >= daily_average) {
         scheme_color = GColorJaegerGreen;
         bitmap = data_get_green_shoe();
+        graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, scheme_color);
+        /// 10x above daily average go BrightGreen
+        if(current_steps > 10*daily_average) {
+          scheme_color = GColorBrightGreen;
+          bitmap = data_get_brgreen_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorJaegerGreen);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*10), fill_thickness, bounds, scheme_color);
+        }
+        /// 9x above daily average go JaegerGreen
+        else if(current_steps > 9*daily_average) {
+          scheme_color = GColorJaegerGreen;
+          bitmap = data_get_green_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorPictonBlue);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*9), fill_thickness, bounds, scheme_color);
+        }
+        /// 8x above daily average go PictonBlue
+        else if(current_steps > 8*daily_average) {
+          scheme_color = GColorPictonBlue;
+          bitmap = data_get_blue_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorBrightGreen);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*8), fill_thickness, bounds, scheme_color);
+        }
+        /// 7x above daily average go BrightGreen
+        else if(current_steps > 7*daily_average) {
+          scheme_color = GColorBrightGreen;
+          bitmap = data_get_brgreen_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorJaegerGreen);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*7), fill_thickness, bounds, scheme_color);
+        }
+        /// 6x above daily average go JaegerGreen
+        else if(current_steps > 6*daily_average) {
+          scheme_color = GColorJaegerGreen;
+          bitmap = data_get_green_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorPictonBlue);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*6), fill_thickness, bounds, scheme_color);
+        }
+        /// 5x above daily average go PictonBlue
+        else if(current_steps > 5*daily_average) {
+          scheme_color = GColorPictonBlue;
+          bitmap = data_get_blue_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorBrightGreen);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*5), fill_thickness, bounds, scheme_color);
+        }
+        /// 4x above daily average go BrightGreen
+        else if(current_steps > 4*daily_average) {
+          scheme_color = GColorBrightGreen;
+          bitmap = data_get_brgreen_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorJaegerGreen);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*4), fill_thickness, bounds, scheme_color);
+        }
+        /// 3x above daily average go JaegerGreen
+        else if(current_steps > 3*daily_average) {
+          scheme_color = GColorJaegerGreen;
+          bitmap = data_get_green_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorPictonBlue);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*3), fill_thickness, bounds, scheme_color);
+        }
+        /// 2x above daily average go PictonBlue
+        else if(current_steps > 2*daily_average) {
+          scheme_color = GColorPictonBlue;
+          bitmap = data_get_blue_shoe();
+          graphics_fill_outer_ring(ctx, daily_average, fill_thickness, bounds, GColorBrightGreen);
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average*2), fill_thickness, bounds, scheme_color);
+        }
+        /// 1x above daily average go BrightGreen
+        else if(current_steps > daily_average) {
+          scheme_color = GColorBrightGreen;
+          bitmap = data_get_brgreen_shoe();
+          graphics_fill_outer_ring(ctx, (current_steps-daily_average), fill_thickness, bounds, scheme_color);
+        }
    }
+   /// above average go blue
    else if(current_steps >= current_average) {
      scheme_color = GColorPictonBlue;
      bitmap = data_get_blue_shoe();
+     graphics_fill_outer_ring(ctx, current_steps, fill_thickness, bounds, scheme_color);
    }
+   /// below average draw in red
    else {
      scheme_color = GColorRed;
      bitmap = data_get_red_shoe();
+     graphics_fill_outer_ring(ctx, current_steps, fill_thickness, bounds, scheme_color);
    }
   
   // Perform drawing
-  graphics_draw_outer_dots(ctx, bounds);
-  graphics_fill_outer_ring(ctx, current_steps, fill_thickness, bounds, scheme_color);
+//  graphics_draw_outer_dots(ctx, bounds);
+//  graphics_fill_outer_ring(ctx, current_steps, fill_thickness, bounds, scheme_color);
   graphics_fill_goal_line(ctx, daily_average, fill_thickness, 4, bounds, GColorYellow);
   graphics_draw_steps_value(ctx, bounds, scheme_color, bitmap);
   GPoint pt;

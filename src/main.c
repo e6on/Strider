@@ -18,10 +18,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits changed) {
 void hdlBle(bool state){
   APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE status change (%d)", state);
     main_window_update_ble(state);
-    if(state){
-        vibes_double_pulse();
-    }
-    else{
+    if(!state){
        VibePattern pat = {
            .durations = patternLost,
            .num_segments = ARRAY_LENGTH(patternLost),

@@ -188,8 +188,17 @@ void graphics_fill_outer_ring(GContext *ctx, int32_t current_steps,
   gpath_draw_filled(ctx, &path);
   graphics_context_set_stroke_color(ctx, color);
   gpath_draw_outline(ctx, &path);
-
   free(path.points);
+  
+  /// Add round end point.
+//  graphics_context_set_fill_color(ctx, color);
+//  GPoint center;
+//  center.x=(end_outer_point.x+end_inner_point.x)/2;
+//  center.y=(end_outer_point.y+end_inner_point.y)/2;
+//  graphics_fill_circle(ctx, center, 5);
+  // Put middle dot to the end point
+//  graphics_context_set_fill_color(ctx, GColorYellow);
+//  graphics_fill_circle(ctx, center, 2);
 #elif defined(PBL_ROUND)
   graphics_fill_radial(ctx, frame, GOvalScaleModeFitCircle, fill_thickness,
                        DEG_TO_TRIGANGLE(0),
@@ -238,10 +247,10 @@ void graphics_draw_steps_value(GContext *ctx, GRect bounds, GColor color, GBitma
 //  shoe_bitmap_box.origin.x = (bounds.size.w / 2) + (combined_width / 2) - shoe_bitmap_box.size.w;
 //  shoe_bitmap_box.origin.y = PBL_IF_RECT_ELSE(60, 65);
   steps_text_box.origin.x = (bounds.size.w / 2) - (text_width / 2);
-  steps_text_box.origin.y = PBL_IF_RECT_ELSE(40, 40);
+  steps_text_box.origin.y = PBL_IF_RECT_ELSE(37, 37);
   shoe_bitmap_box.origin.x = (bounds.size.w / 2) - (shoe_bitmap_box.size.w / 2);
   shoe_bitmap_box.origin.y = PBL_IF_RECT_ELSE(20, 25);
-
+// step counter drawing
   graphics_context_set_text_color(ctx, color);
   graphics_draw_text(ctx, steps_buffer, data_get_font(FontSizeSmall), 
                      steps_text_box, GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL);
@@ -260,11 +269,11 @@ void graphics_draw_status_icons(GContext *ctx, GPoint xy,GBitmap* bitmapBaterry,
     xy.x=140-PBL_IF_RECT_ELSE(15, 5)-batteryBox.size.w;
     batteryBox.origin=xy;
     graphics_draw_bitmap_in_rect(ctx,bitmapBLE,bleBox);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
-    bleBox.origin.x,bleBox.origin.y,bleBox.size.w,bleBox.size.h);
+//    APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
+//    bleBox.origin.x,bleBox.origin.y,bleBox.size.w,bleBox.size.h);
     graphics_draw_bitmap_in_rect(ctx,bitmapBaterry,batteryBox);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
-    batteryBox.origin.x,batteryBox.origin.y,batteryBox.size.w,batteryBox.size.h);
+//    APP_LOG(APP_LOG_LEVEL_DEBUG, "BLE box is in (%d,%d) with siz (%d,%d)",
+//    batteryBox.origin.x,batteryBox.origin.y,batteryBox.size.w,batteryBox.size.h);
     graphics_context_set_fill_color(ctx, GColorGreen);
     graphics_fill_rect(ctx, GRect(batteryBox.origin.x+7, batteryBox.origin.y+4, (uint8_t)((charge / 100.0) * 11.0), 4), 0, GCornerNone);
 

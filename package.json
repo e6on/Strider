@@ -1,5 +1,5 @@
 {
-    "author": "Pebble",
+    "author": "egon",
     "dependencies": {},
     "keywords": [],
     "name": "strider",
@@ -16,20 +16,63 @@
         "resources": {
             "media": [
                 {
-                    "file": "images/bleN.png",
-                    "name": "IMAGE_BLEN",
+                    "file": "images/menu_img.png",
+                    "menuIcon": true,
+                    "name": "menu_img",
                     "targetPlatforms": null,
-                    "type": "png"
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/red_shoe.png",
+                    "name": "RED_SHOE_LOGO",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/green_shoe.png",
+                    "name": "GREEN_SHOE_LOGO",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/brgreen_shoe.png",
+                    "name": "BRGREEN_SHOE_LOGO",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/blue_shoe.png",
+                    "name": "BLUE_SHOE_LOGO",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
                 },
                 {
                     "file": "images/ble.png",
                     "name": "IMAGE_BLE",
                     "targetPlatforms": null,
-                    "type": "png"
+                    "type": "bitmap"
                 },
                 {
-                    "file": "fonts/MET_BoldCaps.ttf",
-                    "name": "MET_BoldCaps_46",
+                    "file": "images/bleN.png",
+                    "name": "IMAGE_BLEN",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/battery.png",
+                    "name": "IMAGE_BATTERY",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/batteryCharger.png",
+                    "name": "IMAGE_BATTERY_CHARGER",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "fonts/din-bold.ttf",
+                    "name": "din_bold_20",
                     "targetPlatforms": null,
                     "type": "font"
                 },
@@ -40,32 +83,10 @@
                     "type": "font"
                 },
                 {
-                    "file": "images/red_shoe.png",
-                    "name": "RED_SHOE_LOGO",
+                    "file": "fonts/MET_BoldCaps.ttf",
+                    "name": "MET_BoldCaps_46",
                     "targetPlatforms": null,
-                    "type": "png"
-                },
-                {
-                    "file": "images/battery.png",
-                    "name": "IMAGE_BATTERY",
-                    "targetPlatforms": null,
-                    "type": "png"
-                },
-                {
-                    "file": "images/batteryCharger.png",
-                    "name": "IMAGE_BATTERY_CHARGER",
-                    "targetPlatforms": null,
-                    "type": "png"
-                },
-                {
-                    "file": "images/green_shoe.png",
-                    "name": "GREEN_SHOE_LOGO",
-                    "type": "png"
-                },
-                {
-                    "file": "images/blue_shoe.png",
-                    "name": "BLUE_SHOE_LOGO",
-                    "type": "png"
+                    "type": "font"
                 }
             ]
         },
@@ -79,5 +100,5 @@
             "watchface": true
         }
     },
-    "version": "1.0.0"
+    "version": "1.4.0"
 }
