@@ -254,7 +254,8 @@ void graphics_draw_steps_value(GContext *ctx, GRect bounds, GColor color, GBitma
   graphics_context_set_text_color(ctx, color);
   graphics_draw_text(ctx, steps_buffer, data_get_font(FontSizeSmall), 
                      steps_text_box, GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL);
-
+  
+  graphics_context_set_compositing_mode(ctx, GCompOpSet);
   graphics_draw_bitmap_in_rect(ctx, bitmap, shoe_bitmap_box);
 }
 /// Added to support BLE and Battery
